@@ -4,7 +4,7 @@ function ProjectItem({id, data}) {
     return (
         <div key={id} className='project-item-wrapper'>
             <div className="image-container">
-                <img src={data.thumbnail_url} alt='' />
+                <img src={require('../../assets/images/space.png')} alt='' />
             </div>
             <div className="title-container">
                 {data.title}
