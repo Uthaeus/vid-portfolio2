@@ -9,7 +9,7 @@ function Projects() {
     })
 
     return (
-        <div>
+        <div className="projects-wrapper">
             {content}
         </div>
     );

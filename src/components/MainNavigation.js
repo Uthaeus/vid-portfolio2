@@ -2,18 +2,18 @@ import { NavLink } from "react-router-dom";
 
 function MainNavigation() {
     return (
-        <div>
-            <div>Title</div>
-            <div>
+        <div className="main-nav-wrapper">
+            <div className="nav-title">Title</div>
+            <div className="nav-links-wrapper">
                 <ul>
                     <li>
-                        <NavLink to='/' end>Home</NavLink>
+                        <NavLink to='/' className='nav-link' end>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/about' end>About</NavLink>
+                        <NavLink to='/about' className='nav-link'>About</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/contact' end>Contact</NavLink>
+                        <NavLink to='/contact' className='nav-link'>Contact</NavLink>
                     </li>
                 </ul>
             </div>

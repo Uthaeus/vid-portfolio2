@@ -1,0 +1,25 @@
+
+.project-item-wrapper {
+    width: 90%;
+    height: 300px;
+    margin: 25px 0;
+    border-radius: 8px;
+    box-shadow: 8px 5px 4px 4px $black;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+        box-shadow: 10px 7px 5px 5px $charcoal;
+    }
+
+    .image-container {
+        padding: 10px;
+        height: 70%;
+    }
+
+    .title-container {
+        font-size: 1.6em;
+        color: $title;
+        text-align: center;
+        padding: 10px;
+    }
+}
