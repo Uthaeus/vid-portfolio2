@@ -4,16 +4,19 @@ body {
 
 .root-container {
     width: 100%;
+    min-height: 100vh;
     height: 100%;
     display: grid;
     grid-template-columns: 2fr 4fr 1fr;
     background-color: $black;
+   
 
 
     .root-column-one {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 }
 

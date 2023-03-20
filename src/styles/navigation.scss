@@ -1,13 +1,21 @@
 .main-nav-wrapper {
     display: flex;
     flex-direction: column;
+    top: 30%;
+    left: 10%;
+    position: fixed;
+
+    .nav-title {
+        font-size: 2em;
+        color: brown;
+        padding: 8px;
+    }
 
     .nav-links-wrapper {
         margin: 20px;
-
-        ul {
-            list-style-type: none;
-        }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
         .nav-link {
             text-decoration: none;
