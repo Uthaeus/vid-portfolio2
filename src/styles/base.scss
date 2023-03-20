@@ -7,24 +7,17 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 2fr 4fr 1fr;
+    background-color: #161616;
 }
 
 .root-column-one {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: brown;
 }
 
 .root-column-two {
-    height: 100%;
-    width: 100%;
-    background-color: green;
 }
 
 .root-column-three {
-    height: 100%;
-    width: 100%;
-    background-color: grey;
 }
