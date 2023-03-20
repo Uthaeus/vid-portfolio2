@@ -5,15 +5,31 @@ function MainNavigation() {
     <div className="main-nav-wrapper">
       <div className="nav-title">Homer J Simpson</div>
       <div className="nav-links-wrapper">
-        <NavLink to="/" className="nav-link" end>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "nav-link link-active" : "nav-link"
+          }
+          end
+        >
           Home
         </NavLink>
 
-        <NavLink to="/about" className="nav-link">
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? 'nav-link link-active' : "nav-link"
+          }
+        >
           About
         </NavLink>
 
-        <NavLink to="/contact" className="nav-link">
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? 'nav-link link-active' : "nav-link"
+          }
+        >
           Contact
         </NavLink>
       </div>
