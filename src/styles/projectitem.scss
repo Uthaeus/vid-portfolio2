@@ -6,6 +6,7 @@
     border-radius: 8px;
     border-bottom: 2px solid transparent;
     transition: 0.5s ease-in-out;
+    text-decoration: none;
 
     &:hover {
         border-bottom: 2px solid $charcoal;
@@ -28,4 +29,5 @@
         text-align: center;
         padding: 10px;
     }
+
 }
