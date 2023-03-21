@@ -1,0 +1,56 @@
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+
+    .about-image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+
+        .about-image {
+            width: 75%;
+            height: 500px;
+        }
+    }
+
+    .about-description-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            width: 100%;
+            font-size: 2em;
+            color: $title;
+            text-align: left;
+        }
+
+        p {
+            width: 80%;
+            font-size: 1.3em;
+            color: $white;
+        }
+
+        .skills-wrapper {
+            width: 90%;
+
+            h3 {
+                font-size: 1.5em;
+                color: $white;
+            }
+
+            ul {
+                list-style-type:circle;
+
+                li {
+                    color: $white;
+                    font-size: 1.4em;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
