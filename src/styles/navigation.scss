@@ -7,7 +7,7 @@
 
     .nav-title {
         font-size: 2em;
-        color: brown;
+        color: $name;
         padding: 8px;
     }
 
@@ -27,6 +27,7 @@
 
             &:hover {
                 color: $title;
+                cursor: pointer;
             }
         }
 

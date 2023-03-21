@@ -4,12 +4,13 @@
     height: 300px;
     margin: 25px 0;
     border-radius: 8px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 4px solid transparent;
     transition: 0.5s ease-in-out;
     text-decoration: none;
 
     &:hover {
-        border-bottom: 2px solid $charcoal;
+        border-bottom: 4px solid $charcoal;
+        cursor: pointer;
     }
 
     .image-container {
