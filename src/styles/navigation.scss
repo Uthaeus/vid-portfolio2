@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     top: 30%;
-    left: 10%;
+    left: 6%;
     position: fixed;
 
     .nav-title {
@@ -21,7 +21,7 @@
             text-decoration: none;
             padding: 8px;
             margin: 10px;
-            color: white;
+            color: $white;
             border-bottom: 1px solid transparent;
             transition: 0.5s ease-in-out;
 
