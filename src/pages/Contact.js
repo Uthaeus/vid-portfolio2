@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function ContactPage() {
   return (
     <div className="contact-container">
@@ -17,13 +19,13 @@ function ContactPage() {
 
         <div className="contact-social-wrapper">
           <a href="www.instagram.com" target="_blank">
-            Insta
+          <FontAwesomeIcon icon="fa-brands fa-instagram" />
           </a>
           <a href="www.facebook.com" target="_blank">
-            Faceb
+          <FontAwesomeIcon icon="fa-brands fa-facebook" />
           </a>
           <a href="www.tiktok.com" target="_blank">
-            TikTok
+          <FontAwesomeIcon icon="fa-brands fa-tiktok" />
           </a>
         </div>
       </div>
