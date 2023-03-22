@@ -5,7 +5,6 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { Provider } from "react-redux";
 
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
@@ -13,8 +12,6 @@ import HomePage from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import RootLayout from "./pages/Root";
 import Auth from "./pages/Auth";
-import { store } from "./store/store";
-
 
 library.add(faInstagram, faFacebook, faTiktok);
 
@@ -48,11 +45,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
