@@ -1,3 +1,4 @@
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {faInstagram, faFacebook, faTiktok} from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -7,6 +8,7 @@ import ContactPage from "./pages/Contact";
 import HomePage from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import RootLayout from "./pages/Root";
+import Auth from "./pages/Auth";
 
 library.add(faInstagram, faFacebook, faTiktok);
 
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/p/:projectId',
         element: <ProjectDetail />
+      },
+      {
+        path: '/auth',
+        element: <Auth />
       }
     ],
   },
