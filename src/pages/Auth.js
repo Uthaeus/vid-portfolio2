@@ -1,19 +1,15 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+
 
 function Auth() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+  
+    const emailIsValid = enteredEmail.length > 3 && enteredEmail.includes('@');
+    const passwordIsValid = enteredPassword.length > 4;
 
-  const user = useSelector((state) => state.adminUsers);
-    const dispatch = useDispatch();
-
-    let titleAlert, newUser;
-
-    if (user.email === '') {
-        newUser = true;
-        titleAlert = <p>Setting New User</p>;
-    }
+    
+    
 
   function emailChangeHandler(event) {
     setEnteredEmail(event.target.value);
@@ -26,14 +22,12 @@ function Auth() {
   function submitHandler(event) {
     event.preventDefault();
 
-    console.log('submit handler auth', enteredEmail, enteredPassword);
-    console.log(user.email);
+    
   }
 
   return (
     <div className="auth-container">
       <h1>Enter Email and Password</h1>
-      {newUser && titleAlert}
 
       <form onSubmit={submitHandler}>
         <input
@@ -48,6 +42,7 @@ function Auth() {
           value={enteredPassword}
           placeholder='password'
         />
+        
         <button type='submit'>Enter</button>
       </form>
     </div>
