@@ -32,6 +32,15 @@ function MainNavigation() {
         >
           Contact
         </NavLink>
+
+        <NavLink
+          to="/auth"
+          className={({ isActive }) =>
+            isActive ? 'nav-link link-active' : "nav-link"
+          }
+        >
+          Log In
+        </NavLink>
       </div>
     </div>
   );
