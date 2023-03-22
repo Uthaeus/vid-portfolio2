@@ -3,14 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const usersSlice = createSlice({
     name: 'users',
     initialState: {
-        users: []
+        userEmail: '',
+        userPassword: ''
     },
     reducers: {
         addUser: (state, action) => {
-            state.users.push(action.payload.user);
+            state.userEmail = action.payload.email;
+            state.userPassword = action.payload.password;
         },
         removeUser: (state, action) => {
-            state.users = [];
+            state.userEmail = '';
+            state.userPassword = '';
         }
     }
 });

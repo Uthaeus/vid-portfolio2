@@ -5,12 +5,12 @@ function Auth() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
-  const users = useSelector((state) => state.adminUsers.users);
+  const user = useSelector((state) => state.adminUsers);
     const dispatch = useDispatch();
 
     let titleAlert, newUser;
 
-    if (users.length === 0) {
+    if (user.email === '') {
         newUser = true;
         titleAlert = <p>Setting New User</p>;
     }
@@ -27,7 +27,7 @@ function Auth() {
     event.preventDefault();
 
     console.log('submit handler auth', enteredEmail, enteredPassword);
-    console.log(users.length);
+    console.log(user.email);
   }
 
   return (
