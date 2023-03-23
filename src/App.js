@@ -12,6 +12,8 @@ import HomePage from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import RootLayout from "./pages/Root";
 import Auth from "./pages/Auth";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "./store/auth-context";
 
 library.add(faInstagram, faFacebook, faTiktok);
 
@@ -45,6 +47,21 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    function fetchToken() {
+      const storedToken = localStorage.getItem('token');
+      console.log('looking for token app.js');
+
+      if (storedToken) {
+        authCtx.authenicate(storedToken);
+      }
+    }
+
+    fetchToken();
+  }, [])
+
   return <RouterProvider router={router} />;
 }
 

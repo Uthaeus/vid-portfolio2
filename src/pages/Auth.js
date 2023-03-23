@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { login } from "../components/util/auth";
 
+import { AuthContext } from "../store/auth-context";
 
 function Auth() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+
+  const authCtx = useContext(AuthContext);
   
     const emailIsValid = enteredEmail.length > 3 && enteredEmail.includes('@');
-    const passwordIsValid = enteredPassword.length > 4;
-
-    
-    
+    const passwordIsValid = enteredPassword.length > 6;
 
   function emailChangeHandler(event) {
     setEnteredEmail(event.target.value);
@@ -19,10 +20,21 @@ function Auth() {
     setEnteredPassword(event.target.value);
   }
 
+  async function loginHandler(email, password) {
+    try {
+      const token = await login(email, password);
+      authCtx.authenicate(token);
+    } catch(error) {
+      console.log('auth.js loginhandler error', error);
+    }
+  }
+
   function submitHandler(event) {
     event.preventDefault();
 
-    
+    if (emailIsValid && passwordIsValid) {
+      loginHandler(enteredEmail, enteredPassword);
+    }
   }
 
   return (
