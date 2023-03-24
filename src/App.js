@@ -14,6 +14,7 @@ import RootLayout from "./pages/Root";
 import Auth from "./pages/Auth";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./store/auth-context";
+import NewProject from "./pages/NewProject";
 
 library.add(faInstagram, faFacebook, faTiktok);
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/p/:projectId",
         element: <ProjectDetail />,
+      },
+      {
+        path: 'new-project',
+        element: <NewProject />
       },
       {
         path: "/auth",

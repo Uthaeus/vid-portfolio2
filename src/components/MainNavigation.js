@@ -15,10 +15,10 @@ function MainNavigation() {
     signOut(auth)
       .then(() => {
         authCtx.logout();
-        navigate('/');
+        navigate("/");
       })
       .catch((error) => {
-        console.log('signout error', error);
+        console.log("signout error", error);
       });
   }
 
@@ -65,11 +65,21 @@ function MainNavigation() {
           </NavLink>
         )}
         {isLoggedIn && (
-          <Link onClick={logoutHandler} className="nav-link">
-            Log Out
-          </Link>
+          <>
+            <NavLink
+              to="/new-project"
+              className={({ isActive }) =>
+                isActive ? "nav-link link-active" : "nav-link"
+              }
+            >
+              Add Project
+            </NavLink>
+
+            <Link onClick={logoutHandler} className="nav-link">
+              Log Out
+            </Link>
+          </>
         )}
-        
       </div>
     </div>
   );
