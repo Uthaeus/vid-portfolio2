@@ -14,9 +14,3 @@ function NewProject() {
 }
 
 export default NewProject;
-
-//title
-//description
-//video_url
-//thumbnail_url
-//category

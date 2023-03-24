@@ -2,3 +2,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.projects-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .projects-loading {
+        font-size: 2em;
+        color: $white;
+        text-align: center;
+    }
+}
+
