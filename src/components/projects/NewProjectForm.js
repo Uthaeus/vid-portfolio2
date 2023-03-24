@@ -8,7 +8,7 @@ const initialData = {
   description: "",
 };
 
-function NewProjectForm() {
+function NewProjectForm({onAddProject}) {
   const [formData, setFormData] = useState(initialData);
 
   function clearForm() {
@@ -25,7 +25,7 @@ function NewProjectForm() {
   function submitHandler(event) {
     event.preventDefault();
 
-    console.log("submit handler new project", formData);
+    onAddProject(formData);
     clearForm();
   }
 
