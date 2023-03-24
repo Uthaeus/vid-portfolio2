@@ -15,6 +15,7 @@ import Auth from "./pages/Auth";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./store/auth-context";
 import NewProject from "./pages/NewProject";
+import ErrorPage from "./pages/Error";
 
 library.add(faInstagram, faFacebook, faTiktok);
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
