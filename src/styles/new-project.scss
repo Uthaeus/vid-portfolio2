@@ -1,0 +1,44 @@
+.new-project-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 2.2em;
+        color: $title;
+        padding: 15px;
+        margin: 35px 0;
+        border-bottom: solid 2px $title;
+    }
+
+    form {
+        width: 90%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .group-two {
+            width: 90%;
+            display: flex;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .group-one {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+}
