@@ -1,14 +1,17 @@
 import { useContext, useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../store/auth-context";
+import { auth } from "../components/util/firebase";
 
 function Auth() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const authCtx = useContext(AuthContext);
-  const auth = getAuth();
   
     const emailIsValid = enteredEmail.length > 3 && enteredEmail.includes('@');
     const passwordIsValid = enteredPassword.length > 6;
@@ -26,9 +29,9 @@ function Auth() {
 
     if (emailIsValid && passwordIsValid) {
       signInWithEmailAndPassword(auth, enteredEmail, enteredPassword).then((userCredential) => {
-        const user = userCredential;
-
-        console.log('signInWithEmailAndPassword', user);
+        const token = userCredential._tokenResponse.idToken;
+        authCtx.authenicate(token);
+        navigate('/');
       }).catch(error => {
         console.log("signInWithEmailAndPassword Error", error.code, error.message);
       })

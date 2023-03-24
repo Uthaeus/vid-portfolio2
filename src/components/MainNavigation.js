@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 
 import { AuthContext } from "../store/auth-context";
@@ -14,15 +14,12 @@ function MainNavigation() {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        console.log('Sign-out successful');
+        authCtx.logout();
+        navigate('/');
       })
       .catch((error) => {
-        // An error happened.
         console.log('signout error', error);
       });
-    // authCtx.logout();
-    // navigate('/');
   }
 
   return (
@@ -68,10 +65,11 @@ function MainNavigation() {
           </NavLink>
         )}
         {isLoggedIn && (
-          <button onClick={logoutHandler} className="nav-link">
+          <Link onClick={logoutHandler} className="nav-link">
             Log Out
-          </button>
+          </Link>
         )}
+        
       </div>
     </div>
   );
