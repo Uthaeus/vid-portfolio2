@@ -1,15 +1,23 @@
 import { useState } from "react";
 
+const initialData = {
+  title: "",
+  category: "",
+  videoUrl: "",
+  thumbnailUrl: "",
+  description: "",
+};
+
 function NewProject() {
-  const [formData, setFormData] = useState({
-    title: "",
-    category: "",
-    videoUrl: "",
-    thumbnailUrl: "",
-  });
+  const [formData, setFormData] = useState(initialData);
+
+  function clearForm() {
+    setFormData(initialData);
+  }
 
   function changeHandler(event) {
     setFormData({
+      ...formData,
       [event.target.name]: event.target.value,
     });
   }
@@ -18,6 +26,7 @@ function NewProject() {
     event.preventDefault();
 
     console.log("submit handler new project", formData);
+    clearForm();
   }
 
   return (
@@ -62,6 +71,8 @@ function NewProject() {
             placeholder="Description of project..."
             rows={8}
             cols={30}
+            value={formData.description}
+            onChange={changeHandler}
           />
         </div>
         <div className="form-actions">
