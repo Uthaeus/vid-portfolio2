@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { login } from "../components/util/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { AuthContext } from "../store/auth-context";
 
@@ -8,6 +8,7 @@ function Auth() {
   const [enteredPassword, setEnteredPassword] = useState("");
 
   const authCtx = useContext(AuthContext);
+  const auth = getAuth();
   
     const emailIsValid = enteredEmail.length > 3 && enteredEmail.includes('@');
     const passwordIsValid = enteredPassword.length > 6;
@@ -20,20 +21,17 @@ function Auth() {
     setEnteredPassword(event.target.value);
   }
 
-  async function loginHandler(email, password) {
-    try {
-      const token = await login(email, password);
-      authCtx.authenicate(token);
-    } catch(error) {
-      console.log('auth.js loginhandler error', error);
-    }
-  }
-
   function submitHandler(event) {
     event.preventDefault();
 
     if (emailIsValid && passwordIsValid) {
-      loginHandler(enteredEmail, enteredPassword);
+      signInWithEmailAndPassword(auth, enteredEmail, enteredPassword).then((userCredential) => {
+        const user = userCredential;
+
+        console.log('signInWithEmailAndPassword', user);
+      }).catch(error => {
+        console.log("signInWithEmailAndPassword Error", error.code, error.message);
+      })
     }
   }
 
