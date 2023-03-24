@@ -1,20 +1,20 @@
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import NewProjectForm from "../components/projects/NewProjectForm";
 
 function NewProject() {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const addProjectHandler = (projectData) => {
         console.log('addProjectHandler newProject.js', projectData);
-        fetch('database_url/meetups.json', {
+        fetch('https://food-order-app-798cb-default-rtdb.firebaseio.com/projects.json', {
             method: 'POST',
             body: JSON.stringify(projectData),
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(() => {
-            history.replace('/')
+            navigate('/');
         });
     }
 
