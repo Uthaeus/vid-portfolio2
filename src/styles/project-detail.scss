@@ -24,6 +24,27 @@
             font-size: 1.6em;
             color: $white;
         }
+
+        .remove-item-wrapper {
+            display: flex;
+            align-items: flex-end;
+            width: 90%;
+            margin-top: 20px;
+            padding: 15px;
+
+            button {
+                background-color: $action;
+                padding: 8px 20px;
+                border-radius: 6px;
+                color: $black;
+                transition: 0.4s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.75;
+                }
+            }
+        }
     }
 
     .right-column-wrapper {

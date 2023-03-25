@@ -59,7 +59,6 @@ function App() {
   useEffect(() => {
     function fetchToken() {
       const storedToken = localStorage.getItem('token');
-      console.log('looking for token app.js');
 
       if (storedToken) {
         authCtx.authenicate(storedToken);
