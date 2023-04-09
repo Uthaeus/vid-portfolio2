@@ -12,12 +12,13 @@ function ProjectListContextProvider({children}) {
     const [projectsArr, setProjectsArr] = useState();
 
     function instantiateProjectList(arr) {
-        console.log('instantiateProjectList -', arr);
         setProjectsArr(arr);
     }
 
     function addProject(project) {
-        setProjectsArr(prev => [...prev, project]);
+        console.log('adding project to context', project);
+        let newList = [...projectsArr, project];
+        setProjectsArr(newList);
     }
 
     function removeProject(id) {

@@ -17,7 +17,8 @@ function ProjectDetail() {
 
   let project = projectCtx.projects.find((item) => projectId === item.id);
 
-  let { title, description, thumbnail_url, video_url } = project.data;
+  let { title, description } = project;
+  console.log('project detail --', project);
 
   function deleteItemHandler() {
     fetch(`https://food-order-app-798cb-default-rtdb.firebaseio.com/projects/${projectId}.json`, { method: 'DELETE' }).then(response => {

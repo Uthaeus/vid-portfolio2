@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ProjectListContext } from "../../store/projectList-context";
 
 const initialData = {
   title: "",
@@ -10,6 +11,7 @@ const initialData = {
 
 function NewProjectForm({onAddProject}) {
   const [formData, setFormData] = useState(initialData);
+  const projectCtx = useContext(ProjectListContext);
 
   function clearForm() {
     setFormData(initialData);
@@ -26,6 +28,7 @@ function NewProjectForm({onAddProject}) {
     event.preventDefault();
 
     onAddProject(formData);
+    projectCtx.addProject(formData);
     clearForm();
   }
 

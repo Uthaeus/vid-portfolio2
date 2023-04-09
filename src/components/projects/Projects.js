@@ -59,8 +59,6 @@ function Projects() {
     });
   }
 
-  console.log("after useEffect in projects", loadedProjects);
-  console.log('looking at context', projectCtx.projects);
 
   return <div className="projects-wrapper">{content}</div>;
 }
