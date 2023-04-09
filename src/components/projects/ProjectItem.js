@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 import background from '../../assets/images/space.png';
 
-function ProjectItem({id, data}) {
+function ProjectItem({data}) {
     return (
-        <Link to={`/p/${id}`} className='project-item-wrapper'>
+        <Link to={`/p/${data.id}`} className='project-item-wrapper'>
             <div className="image-container" style={{
               backgroundImage: `url(${background})`,
               backgroundPosition: "center",

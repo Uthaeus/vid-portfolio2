@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import ProjectItem from "./ProjectItem";
 import { DUMMY_DATA } from "../../store/dummy_data";
+import { ProjectListContext } from "../../store/projectList-context";
 
 function Projects() {
   const [isLoading, setIsLoading] = useState(false);
   const [loadedProjects, setLoadedProjects] = useState([]);
+  let content;
+
+  const projectCtx = useContext(ProjectListContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,15 +32,18 @@ function Projects() {
 
         setIsLoading(false);
         setLoadedProjects(projects);
+        loadToContext(projects);
       })
       .catch((error) => {
         console.log("fetching projects.js error", error);
       });
   }, []);
 
-  const content = DUMMY_DATA.map((item) => {
-    return <ProjectItem key={item.id} {...item} />;
-  });
+  function loadToContext(arr) {
+    projectCtx.instantiateProjectList(arr);
+  }
+
+  
 
   if (isLoading) {
     return (
@@ -46,7 +53,14 @@ function Projects() {
     );
   }
 
+  if (loadedProjects.length > 0) {
+    content = loadedProjects.map((item) => {
+      return <ProjectItem key={item.id} data={item} />;
+    });
+  }
+
   console.log("after useEffect in projects", loadedProjects);
+  console.log('looking at context', projectCtx.projects);
 
   return <div className="projects-wrapper">{content}</div>;
 }
